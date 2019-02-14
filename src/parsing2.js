@@ -9,7 +9,7 @@ const parse = function(url){
             return{
                 name: $('.rc-popinQualitelis-heading', html).text(),
                 price: $('.price', html).text(),
-                restaurants: $('.jsSecondNavSub',html).children().text(),
+                //restaurants: $('.jsSecondNavSub',html).children().text(),
                 //restaurants: $("h3[itemprop = 'name']").text(),
                 //restaurants: $('#tabRestaurant816 > div > div.row.hotelTabsHeader > div:nth-child(1) > div.hotelTabsHeaderTitle > h3', html).text(),
             };
