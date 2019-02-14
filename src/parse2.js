@@ -42,30 +42,36 @@ const getDataFromUrl = async () => {
 
     let result = []
 
-    for(let i = 0; i < 3; i++)
+    for(let i = 6; i < 7; i++)
     {
         await page.goto(url.links[i])
         await page.click('body > div.jsSecondNav.will-stick > ul.jsSecondNavMain > li:nth-child(2) > a > span')
         await page.waitFor(1000)
         
         let data = await page.evaluate(() => {
-            let name = document.querySelector("h1[itemprop = 'name']").innerText
-            let price = document.querySelector(".price").innerText
-            let restaurant = document.querySelector("h3[itemprop = 'name']").innerText
-
-            return {name, price, restaurant}
+            try{
+                let index = i + 1
+                let name = document.querySelector("h1[itemprop = 'name']").innerText
+                let price = document.querySelector(".price").innerText
+                let restaurant = document.querySelector("h3[itemprop = 'name']").innerText
+                return {index, name, price, restaurant}
+            }
+            catch(error){
+                console.error(error)
+            }
         })
 
         result.push(data)
 
     }
-
     browser.close()
     return result
 }
 
+
 getDataFromUrl().then(value => {
-    console.log(value)
+    let data = JSON.stringify(value)
+    fs.writeFileSync('hotels.json', data)
 })
 
 
