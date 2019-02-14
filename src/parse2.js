@@ -75,6 +75,16 @@ const getDataFromUrl = async () => {
 })*/
 
 
+function getHotel(){
+    const file = fs.readFileSync('hotels.json')
+    const url = JSON.parse(file)
+    return url
+}
+
+const hotels = getHotel()
+console.log(hotels)
+
+
 
 
 
