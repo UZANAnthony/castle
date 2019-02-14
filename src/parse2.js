@@ -33,7 +33,7 @@ function getURL(){
 }
 
 const url = getURL()
-//console.log(url)
+console.log(url)
 
 
 /*const getDataFromUrl = async (browser, url) => {
