@@ -33,21 +33,38 @@ function getURL(){
 }
 
 const url = getURL()
-console.log(url)
+//console.log(url.links.length)
 
 
-/*const getDataFromUrl = async (browser, url) => {
+const getDataFromUrl = async () => {
+    const browser = await puppeteer.launch({ headless: false })
     const page = await browser.newPage()
-    await page.goto(url)
-    await page.waitFor('body')
-    return page.evaluate(() => {
-      let title = document.querySelector('h1').innerText
-      let price = document.querySelector('.price_color').innerText
-      return { title, price }
-    })
-  }
 
-module.exports = getDataFromUrl;*/
+    //let result = null
+
+    //for(let i = 0; i < url.links.length; i++)
+    //{
+    await page.goto(url.links[0])
+    await page.click('body > div.jsSecondNav.will-stick > ul.jsSecondNavMain > li:nth-child(2) > a > span')
+    await page.waitFor(1000)
+    
+    let result = await page.evaluate(() => {
+        let name = document.querySelector("h1[itemprop = 'name']").innerText
+        let price = document.querySelector(".price").innerText
+        let restaurant = document.querySelector("h3[itemprop = 'name']").innerText
+
+        return {name, price, restaurant}
+    })
+    //}
+
+    browser.close()
+    return result
+}
+
+getDataFromUrl().then(value => {
+    console.log(value)
+})
+
 
 
 
