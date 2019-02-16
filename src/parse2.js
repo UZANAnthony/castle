@@ -82,7 +82,9 @@ function getHotel(){
 }
 
 const hotels = getHotel()
-console.log(hotels)
+//console.log(hotels)
+
+
 
 
 
