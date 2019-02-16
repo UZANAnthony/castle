@@ -3,11 +3,7 @@ const rp = require('request-promise')
 const cheerio = require('cheerio')
 const $ = require('cheerio')
 const fs = require('fs')
-//const url = 'https://www.relaischateaux.com/fr/france/bussiere-cote-d-or-la-bussiere-sur-ouche';
-//const url = 'https://www.relaischateaux.com/fr/france/annedebretagne-loire-atlantique-la-plaine-sur-mer'
-//const url = 'https://www.relaischateaux.com/fr/france/assiette-champenoise-champagne-ardenne-tinqueux'
-//const url = 'https://www.relaischateaux.com/fr/france/crocodile-bas-rhin'
-
+const fetch = require("node-fetch")
 
 function createJsonURL(){
     request('https://www.relaischateaux.com/fr/site-map/etablissements', (error, response, html) => {
@@ -59,7 +55,7 @@ const getDataFromUrl = function(url){
                 city: $('[itemprop="addressLocality"]', html).first().text().trim(),
                 citation: $('.citationMsg', html).text().trim().trim(),
                 desc: $('.propertyDesc', html).find('.richTextMargin').text().trim(),
-                rest: [{name: rest0, star: null},{name: rest1, star: null}]                 
+                rest: [{name: rest0, michelinurl: null, star: null},{name: rest1, michelinurl: null, star: null}]                 
             }
             return data
         })
@@ -81,4 +77,69 @@ async function getHotelJSON(){
     fs.writeFileSync('hotelsv2.json', data)
 }
 
-getHotelJSON()
+//getHotelJSON()
+
+function getHotel(){
+    const file = fs.readFileSync('hotelsv2.json')
+    const url = JSON.parse(file)
+    return url
+}
+
+let hotels = getHotel()
+
+//console.log(hotels)
+
+async function michelin(hotels){
+    let result = []
+    for (let i = 0; i < hotels.length; i++) {
+        //console.log(hotels[i].rest[1].name)
+        if(hotels[i].rest[1].name != null){
+            result.push(fetch("https://restaurant.michelin.fr/index.php?q=search/autocomplete/" + encodeURI(hotels[i].rest[0].name.slice(0, -1))))
+            result.push(fetch("https://restaurant.michelin.fr/index.php?q=search/autocomplete/" + encodeURI(hotels[i].rest[1].name.slice(0, -1))))
+        }
+        else{
+            result.push(fetch("https://restaurant.michelin.fr/index.php?q=search/autocomplete/" + encodeURI(hotels[i].rest[0].name.slice(0, -1))))
+        }
+    }
+    //console.log(result.length)
+    let trash = []
+    for (let i = 0; i < result.length; i++) {
+        var response = await result[i]
+        response = (await response.json())
+        if (response.toString().includes("Aucun résultat.")) {
+            trash.push(i)
+        }
+        else {
+            response = await JSON.stringify(response)
+            if (response.includes("poi")) {
+                response = await JSON.parse(response)
+                let keys = Object.keys(response)
+                let key = null
+                for (let w = keys.length - 1; w != -1; w--) {
+                    if (keys[w] != "poi-all" && keys[w].includes("poi")) {
+                        key = keys[w]
+                    }
+                }
+                if (key != null) {
+                    response = response[key].split('"')[1]
+                    hotels[Math.trunc(i/2)].rest[i%2].michelinurl = "https://restaurant.michelin.fr" + response
+                    //console.log(hotels[Math.trunc(i/2)].rest[i%2])
+                }
+            }
+        }
+    }
+    let data = JSON.stringify(hotels)
+    fs.writeFileSync('hotelsv3.json', data)
+
+    return hotels
+}
+
+michelin(hotels)
+
+
+
+
+
+
+
+

@@ -9,12 +9,12 @@
        "rest":[  
           {  
              "name":"Gastronomique",
-             "michelinurl":null,
+             "michelinurl":"https://restaurant.michelin.fr/3627846/la-closerie-des-lilas-restaurant-gastronomique-paris-06",
              "star":null
           },
           {  
              "name":"Bistrot des Moines",
-             "michelinurl":null,
+             "michelinurl":"https://restaurant.michelin.fr/2e4epe8190/le-bistrot-des-moines-la-bussiere-sur-ouche",
              "star":null
           }
        ]
@@ -29,7 +29,7 @@
        "rest":[  
           {  
              "name":"Anne de Bretagne",
-             "michelinurl":null,
+             "michelinurl":"https://restaurant.michelin.fr/2ciults/anne-de-bretagne-la-plaine-sur-mer",
              "star":null
           },
           {  
