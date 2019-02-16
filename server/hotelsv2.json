@@ -1,0 +1,38 @@
+[  
+    {  
+       "name":"Abbaye de la Bussière",
+       "url":"https://www.relaischateaux.com/fr/france/bussiere-cote-d-or-la-bussiere-sur-ouche",
+       "price":"225,00",
+       "city":"La Bussière-sur-Ouche",
+       "citation":"“Le silence est d’or, la cuisine somptueuse”",
+       "desc":"Doté d’un lac et d’un jardin botanique, le parc de cette abbaye cistercienne du xiie siècle est empreint d'une longue tradition d’humilité, de paix et d’hospitalité et respire la tranquillité. Magnifiquement restaurée par la famille Cummings, l'Abbaye de la Bussière brille par son architecture discrète à l’extérieur, spectaculaire à l’intérieur, où la décoration a intégré d’anciennes fresques découvertes durant la rénovation du bâtiment. Meubles anciens et tissus soyeux déploient un raffinement sans ostentation, d’une pure élégance. Vous dînerez dans un décor de cathédrale et goûterez les délices d’une carte des vins qui offre le meilleur de la Bourgogne.",
+       "rest":[  
+          {  
+             "name":"Gastronomique",
+             "star":null
+          },
+          {  
+             "name":"Bistrot des Moines",
+             "star":null
+          }
+       ]
+    },
+    {  
+       "name":"Anne de Bretagne",
+       "url":"https://www.relaischateaux.com/fr/france/annedebretagne-loire-atlantique-la-plaine-sur-mer",
+       "price":"72,50",
+       "city":"La Plaine sur Mer",
+       "citation":"“Escapade gourmande en bord de mer”",
+       "desc":"Posée face à l’océan, sur la Côte de Jade, la charmante maison accueille les gourmets dans un cadre époustouflant, la vue imprenable sur la mer émerveille tant depuis le restaurant que depuis les suites. En cuisine, où l’iode est le marqueur principal, Mathieu Guibert fait la part belle aux poissons et aux fruits de mer de la région. Le chef met également un point d’honneur à la sélection des produits de la terre qui entrent dans la composition de ses plats, il connaît bien les producteurs qui l’entourent et met en lumière toute la beauté et la complexité des produits locaux. Une véritable balade gustative au cœur du Pays de Retz.",
+       "rest":[  
+          {  
+             "name":"Anne de Bretagne",
+             "star":null
+          },
+          {  
+             "name":null,
+             "star":null
+          }
+       ]
+    }
+ ]
