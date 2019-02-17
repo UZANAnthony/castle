@@ -6,32 +6,14 @@ const fs = require('fs')
 const fetch = require("node-fetch")
 
 async function createJsonURL(){
-    request('https://www.relaischateaux.com/fr/site-map/etablissements', (error, response, html) => {
-        if(!error && response.statusCode == 200){
-            const $ = cheerio.load(html)
-            $('#countryF').first().remove()
-            const destinationResults = $('#countryF').html()
-            const url = 
-            {
-                links: destinationResults.split('"').filter(word => word.includes("https://www.relaischateaux.com/fr/france"))
-            }
-            let data = JSON.stringify(url)
-            fs.writeFileSync('url.json', data)
-            return url
-        }
-    })
+    let res = await fetch('https://www.relaischateaux.com/fr/site-map/etablissements')
+    res = await res.text()
+    const $ = cheerio.load(res)
+    $('#countryF').first().remove()
+    const destinationResults = $('#countryF').html()
+    let link = destinationResults.split('"').filter(word => word.includes("https://www.relaischateaux.com/fr/france"))
+    return link
 }
-
-//createJsonURL()
-
-function getURL(){
-    const file = fs.readFileSync('url.json')
-    const url = JSON.parse(file)
-    return url
-}
-
-const url = getURL()
-
 
 const getDataFromUrl = async function(url){
     return rp(url)
@@ -65,45 +47,31 @@ const getDataFromUrl = async function(url){
         })
 }
 
-async function getHotelJSON(){
+//console.log(getDataFromUrl("https://www.relaischateaux.com/fr/france/bussiere-cote-d-or-la-bussiere-sur-ouche"))
+
+async function getHotels (){
+    let url = await createJsonURL();
+    //console.log(url)
     let result = []
-    for(let i = 0; i < url.links.length; i++)
+    for(let i = 0; i < url.length; i++)
     {
-        console.log('Process : ' + (i+1) + '/' + url.links.length)
-        await getDataFromUrl(url.links[i]).then(value => {
-            result.push(value)
-        })
+        console.log('Process : ' + (i+1) + '/' + url.length)
+        result.push(await getDataFromUrl(url[i]))
     }
-    let data = JSON.stringify(result)
-    fs.writeFileSync('hotelsv2.json', data)
     return result
 }
 
-//getHotelJSON()
-
-function getHotel(){
-    const file = fs.readFileSync('hotelsv2.json')
-    const url = JSON.parse(file)
-    return url
-}
-
-//let hotels = getHotel()
 
 function removeRest(hotels){
     let res = []
     for(let i = 0; i < hotels.length; i++){
-        if(hotels[i].name != ""){
+        if(hotels[i].rest[0].name != ""){
             res.push(hotels[i])
         }
     }
-    let data = JSON.stringify(res)
-    fs.writeFileSync('hotelsv3.json', data)
     return res
 }
 
-//removeRest(hotels)
-
-//console.log(hotels)
 
 async function michelin(hotels){
     let result = []
@@ -117,49 +85,27 @@ async function michelin(hotels){
             result.push(fetch("https://restaurant.michelin.fr/index.php?q=search/autocomplete/" + encodeURI(hotels[i].rest[0].name)))
         }
     }
-    let trash = []
     for (let i = 0; i < result.length; i++) {
         var response = await result[i]
-        response = (await response.json())
-        if (response.toString().includes("Aucun résultat.")) {
-            trash.push(i)
-        }
-        else {
-            response = await JSON.stringify(response)
-            if (response.includes("poi")) {
-                response = await JSON.parse(response)
-                let keys = Object.keys(response)
-                let key = null
-                for (let w = keys.length - 1; w != -1; w--) {
-                    if (keys[w] != "poi-all" && keys[w].includes("poi")) {
-                        key = keys[w]
-                    }
+        response = await response.json()
+        response = await JSON.stringify(response)
+        if (response.includes("poi")) {
+            response = await JSON.parse(response)
+            let keys = Object.keys(response)
+            let key = null
+            for (let w = keys.length - 1; w != -1; w--) {
+                if (keys[w] != "poi-all" && keys[w].includes("poi")) {
+                    key = keys[w]
                 }
-                if (key != null) {
-                    response = response[key].split('"')[1]
-                    hotels[Math.trunc(i/2)].rest[i%2].michelinurl = "https://restaurant.michelin.fr" + response
-                }
+            }
+            if (key != null) {
+                response = response[key].split('"')[1]
+                hotels[Math.trunc(i/2)].rest[i%2].michelinurl = "https://restaurant.michelin.fr" + response
             }
         }
     }
-    //let data = JSON.stringify(hotels)
-    //fs.writeFileSync('hotelsv4.json', data)
     return hotels
 }
-
-function getHotel2(){
-    const file = fs.readFileSync('hotelsv3.json')
-    const url = JSON.parse(file)
-    return url
-}
-
-//let hotels = getHotel2()
-//console.log(hotels)
-
-/*michelin(hotels).then(value => {
-    let data = JSON.stringify(value)
-    fs.writeFileSync('hotelsv4.json', data)
-})*/
 
 async function countMichelinStars(hotels) {
     let res = []
@@ -190,48 +136,16 @@ async function countMichelinStars(hotels) {
         }
         
     }
-    let data = JSON.stringify(hotels)
-    fs.writeFileSync('hotelsv5.json', data)
     return hotels
 }
 
-function getHotel3(){
-    const file = fs.readFileSync('hotelsv4.json')
-    const url = JSON.parse(file)
-    return url
+async function scrapping(){
+    let hotels = await getHotels()
+    //hotels =  removeRest(hotels)
+    hotels = await michelin(hotels)
+    hotels = await countMichelinStars(hotels)
+    let data = JSON.stringify(hotels, null, 2)
+    fs.writeFileSync('hotels.json', data)
 }
 
-//let hotels2 = getHotel3()
-//console.log(hotels2)
-
-//countMichelinStars(hotels2)
-
-
-
-function getHotel4(){
-    const file = fs.readFileSync('hotelsv5.json')
-    const hotels = JSON.parse(file)
-    return hotels
-}
-
-let hotels3 = getHotel4()
-
-function cleanJson(hotels){
-    let res = []
-    for(let i = 0; i < hotels.length; i++){
-        if(hotels[i].rest[0].michelinurl != null && hotels[i].rest[0].star > 0 && hotels[i].rest[1].michelinurl == null){
-            res.push(hotels[i])
-        }
-        if(hotels[i].rest[0].michelinurl == null && hotels[i].rest[1].michelinurl != null && hotels[i].rest[1].star > 0){
-            res.push(hotels[i])
-        }
-        if(hotels[i].rest[0].michelinurl != null && hotels[i].rest[1].michelinurl != null && hotels[i].rest[1].name != null && (hotels[i].rest[1].star > 0 || hotels[i].rest[0].star > 0)){
-            res.push(hotels[i])
-        }
-    }
-    let data = JSON.stringify(res)
-    fs.writeFileSync('hotelsv6.json', data)
-    return res
-}
-
-//cleanJson(hotels3)
+scrapping()
