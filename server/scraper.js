@@ -234,4 +234,4 @@ function cleanJson(hotels){
     return res
 }
 
-cleanJson(hotels3)
+//cleanJson(hotels3)
