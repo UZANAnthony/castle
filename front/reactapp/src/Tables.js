@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 import React from 'react';
-import data from './hotelsv5.json';
+import data from './hotels.json';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
@@ -190,14 +190,7 @@ function ReactVirtualizedTable() {
       <WrappedVirtualizedTable
         rowCount={rows.length}
         rowGetter={({ index }) => rows[index]}
-        //onRowClick={event => alert(JSON.stringify(info[event.index]))}
         onRowClick={function(event){
-            /*let name = info[event.index].name
-            let city = info[event.index].city
-            let price = info[event.index].price
-            let citation = info[event.index].citation
-            let desc = info[event.index].desc*/
-
             let message = ''
 
             if(info[event.index].rest[1].name == null){
@@ -213,7 +206,7 @@ function ReactVirtualizedTable() {
                     message = 'Restaurant 1: ' + info[event.index].rest[0].name + '\nMichelin stars: ' + info[event.index].rest[0].star + '\n\nRestaurant 2: ' + info[event.index].rest[1].name + '\nNo recognizes by Michelin.'
                 }
                 else if(info[event.index].rest[0].star == null && info[event.index].rest[1].star != null){
-                    message = 'Restaurant 1: ' + info[event.index].rest[0].name + '\nNo recognizes by Michelin.\n\nRestaurant 2:' + info[event.index].rest[1].name + '\nMichelin stars: ' + info[event.index].rest[1].star
+                    message = 'Restaurant 1: ' + info[event.index].rest[0].name + '\nNo recognizes by Michelin.\n\nRestaurant 2: ' + info[event.index].rest[1].name + '\nMichelin stars: ' + info[event.index].rest[1].star
                 }
                 else if(info[event.index].rest[0].star != null && info[event.index].rest[1].star != null){
                     message = 'Restaurant 1: ' + info[event.index].rest[0].name + '\nMichelin stars: ' + info[event.index].rest[0].star + '\n\nRestaurant 2: ' + info[event.index].rest[1].name + '\nMichelin stars: ' + info[event.index].rest[1].star

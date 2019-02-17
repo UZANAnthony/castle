@@ -207,3 +207,31 @@ function getHotel3(){
 //countMichelinStars(hotels2)
 
 
+
+function getHotel4(){
+    const file = fs.readFileSync('hotelsv5.json')
+    const hotels = JSON.parse(file)
+    return hotels
+}
+
+let hotels3 = getHotel4()
+
+function cleanJson(hotels){
+    let res = []
+    for(let i = 0; i < hotels.length; i++){
+        if(hotels[i].rest[0].michelinurl != null && hotels[i].rest[0].star > 0 && hotels[i].rest[1].michelinurl == null){
+            res.push(hotels[i])
+        }
+        if(hotels[i].rest[0].michelinurl == null && hotels[i].rest[1].michelinurl != null && hotels[i].rest[1].star > 0){
+            res.push(hotels[i])
+        }
+        if(hotels[i].rest[0].michelinurl != null && hotels[i].rest[1].michelinurl != null && hotels[i].rest[1].name != null && (hotels[i].rest[1].star > 0 || hotels[i].rest[0].star > 0)){
+            res.push(hotels[i])
+        }
+    }
+    let data = JSON.stringify(res)
+    fs.writeFileSync('hotelsv6.json', data)
+    return res
+}
+
+cleanJson(hotels3)
