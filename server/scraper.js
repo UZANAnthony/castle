@@ -139,6 +139,17 @@ async function countMichelinStars(hotels) {
     return hotels
 }
 
+function removeNoS(hotels){
+    let res = []
+    for(let i = 0; i < hotels.length; i++){
+        if(hotels[i].rest[0].star > 0 || hotels[i].rest[1].star > 0){
+            res.push(hotels[i])
+        }
+    }
+    return res
+}
+
+
 async function scrapping(){
     let hotels = await getHotels()
     //console.log(hotels)
@@ -146,6 +157,7 @@ async function scrapping(){
     //console.log(hotels)
     hotels = await michelin(hotels)
     hotels = await countMichelinStars(hotels)
+    hotels = removeNoS(hotels)
     let data = JSON.stringify(hotels, null, 2)
     fs.writeFileSync('hotels.json', data)
 }
