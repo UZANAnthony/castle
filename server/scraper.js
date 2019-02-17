@@ -141,7 +141,9 @@ async function countMichelinStars(hotels) {
 
 async function scrapping(){
     let hotels = await getHotels()
-    //hotels =  removeRest(hotels)
+    //console.log(hotels)
+    hotels =  removeRest(hotels)
+    //console.log(hotels)
     hotels = await michelin(hotels)
     hotels = await countMichelinStars(hotels)
     let data = JSON.stringify(hotels, null, 2)
