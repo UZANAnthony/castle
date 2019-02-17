@@ -162,16 +162,23 @@ const WrappedVirtualizedTable = withStyles(styles)(MuiVirtualizedTable);
 
 
 let id = 0;
-function createData(name, city, price) {
+function createData(name, city, price, nb_rest) {
   id += 1;
-  return { id, name, city, price };
+  return { id, name, city, nb_rest, price };
 }
 
 const rows = [];
 const info = [];
 
 data.map(function(row){
-    rows.push(createData(row.name, row.city, row.price))
+    let nb_rest = 0
+    if(row.rest[1].name == null){
+        nb_rest = 1
+    }
+    else{
+        nb_rest = 2
+    }
+    rows.push(createData(row.name, row.city, row.price, nb_rest))
     info.push(row)
     return 0
 })
@@ -183,21 +190,61 @@ function ReactVirtualizedTable() {
       <WrappedVirtualizedTable
         rowCount={rows.length}
         rowGetter={({ index }) => rows[index]}
-        onRowClick={event => console.log(info[event.index])}
+        //onRowClick={event => alert(JSON.stringify(info[event.index]))}
+        onRowClick={function(event){
+            /*let name = info[event.index].name
+            let city = info[event.index].city
+            let price = info[event.index].price
+            let citation = info[event.index].citation
+            let desc = info[event.index].desc*/
+
+            let message = ''
+
+            if(info[event.index].rest[1].name == null){
+                if(info[event.index].rest[0].star != null){
+                    message = 'Restaurant: ' + info[event.index].rest[0].name + '\nMichelin stars: ' + info[event.index].rest[0].star
+                }
+                else{
+                    message = 'Restaurant: ' + info[event.index].rest[0].name + '\nNo recognizes by Michelin.'
+                }
+            }
+            else{
+                if(info[event.index].rest[0].star != null && info[event.index].rest[1].star == null){
+                    message = 'Restaurant 1: ' + info[event.index].rest[0].name + '\nMichelin stars: ' + info[event.index].rest[0].star + '\n\nRestaurant 2: ' + info[event.index].rest[1].name + '\nNo recognizes by Michelin.'
+                }
+                else if(info[event.index].rest[0].star == null && info[event.index].rest[1].star != null){
+                    message = 'Restaurant 1: ' + info[event.index].rest[0].name + '\nNo recognizes by Michelin.\n\nRestaurant 2:' + info[event.index].rest[1].name + '\nMichelin stars: ' + info[event.index].rest[1].star
+                }
+                else if(info[event.index].rest[0].star != null && info[event.index].rest[1].star != null){
+                    message = 'Restaurant 1: ' + info[event.index].rest[0].name + '\nMichelin stars: ' + info[event.index].rest[0].star + '\n\nRestaurant 2: ' + info[event.index].rest[1].name + '\nMichelin stars: ' + info[event.index].rest[1].star
+                }
+                else{
+                    message = 'Restaurant 1: ' + info[event.index].rest[0].name + '\nNo recognizes by Michelin.\n\nRestaurant 2: ' + info[event.index].rest[1].name + '\nNo recognizes by Michelin.'
+                }
+            }
+            
+            alert(message)
+        }}
         columns={[
           {
-            width: 200,
+            width: 50,
             flexGrow: 1.0,
             label: 'Name',
             dataKey: 'name',
           },
           {
-            width: 120,
+            width: 300,
             label: 'City',
             dataKey: 'city',
           },
           {
-            width: 120,
+            width: 200,
+            label: 'Nb. Rest',
+            dataKey: 'nb_rest',
+            numeric: true,
+          },
+          {
+            width: 200,
             label: 'Price',
             dataKey: 'price',
             numeric: true,
