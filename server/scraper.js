@@ -201,9 +201,9 @@ function getHotel3(){
     return url
 }
 
-let hotels2 = getHotel3()
+//let hotels2 = getHotel3()
 //console.log(hotels2)
 
-countMichelinStars(hotels2)
+//countMichelinStars(hotels2)
 
 
