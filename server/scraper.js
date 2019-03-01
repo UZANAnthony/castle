@@ -34,6 +34,7 @@ const getDataFromUrl = async function(url){
             let data = {
                 name: $('.rc-popinQualitelis-heading', html).text().trim(),
                 url: url,
+                image: $('.hotelHeader-img', html).attr('data-src'),
                 price: $('.price', html).text().trim(),
                 city: $('[itemprop="addressLocality"]', html).first().text().trim(),
                 citation: $('.citationMsg', html).text().trim().trim(),
@@ -53,7 +54,7 @@ async function getHotels (){
     let url = await createJsonURL();
     //console.log(url)
     let result = []
-    for(let i = 0; i < url.length; i++)
+    for(let i = 0; i < 3; i++)
     {
         console.log('Process : ' + (i+1) + '/' + url.length)
         result.push(await getDataFromUrl(url[i]))
@@ -139,6 +140,8 @@ async function countMichelinStars(hotels) {
     return hotels
 }
 
+
+
 function removeNoS(hotels){
     let res = []
     for(let i = 0; i < hotels.length; i++){
@@ -147,6 +150,16 @@ function removeNoS(hotels){
         }
     }
     return res
+}
+
+function removeR2(hotels){
+    for(let i = 0; i < hotels.length; i++){
+        if(hotels[i].rest[1].name === null){
+            hotels[i].rest[1].michelinurl = null
+            hotels[i].rest[1].star = null
+        }
+    }
+    return hotels
 }
 
 
@@ -158,6 +171,7 @@ async function scrapping(){
     hotels = await michelin(hotels)
     hotels = await countMichelinStars(hotels)
     hotels = removeNoS(hotels)
+    hotels = removeR2(hotels)
     let data = JSON.stringify(hotels, null, 2)
     fs.writeFileSync('hotels.json', data)
 }
