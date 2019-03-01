@@ -32,32 +32,20 @@
   }
 }
 
-
-.some-page-wrapper {
-  margin: 15px;
-  background-color: red;
+.alert{
+  margin-top: 500px
 }
 
-.row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;
-}
-
-.blue-column {
-  background-color: blue;
+.title{
   height: 100px;
+  background-color: #367ee9;
+  color: beige;
+  vertical-align: middle;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-bottom: 50px
 }
 
-.green-column {
-  background-color: green;
-  height: 100px;
+h1{
+  text-align: center;
+  line-height: 2.3em;
 }
