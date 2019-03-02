@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import data from '../Data/hotels2.json'
+import data from '../Data/hotels3.json'
 
 class Grid extends Component {
 

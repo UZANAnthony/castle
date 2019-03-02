@@ -112,11 +112,19 @@ class RecipeReviewCard extends React.Component {
             <Typography paragraph>
                 <ul>
                     {this.props.item.rest.map((resto) => {
+                      if(resto.name != null){
                         return (
-                            <li>
-                                {resto.name} | {resto.star}
-                            </li>
-                        )
+                          <li>
+                              {resto.name} | {resto.star} étoile(s)
+                          </li>
+                      )
+                      }
+                      else{
+                        return (
+                          <p></p>
+                      )
+                      }
+                        
                     })}
                 </ul>
             </Typography>

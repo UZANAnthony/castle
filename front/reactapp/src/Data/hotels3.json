@@ -1,0 +1,170 @@
+[
+  {
+    "name": "Anne de Bretagne",
+    "url": "https://www.relaischateaux.com/fr/france/annedebretagne-loire-atlantique-la-plaine-sur-mer",
+    "image": "//media.relaischateaux.com/public/hash/34075dd2a01a31e71a79c5e8dd8fc16ac54fc5a8",
+    "price": "115,00",
+    "city": "La Plaine sur Mer",
+    "citation": "“Escapade gourmande en bord de mer”",
+    "desc": "Posée face à l’océan, sur la Côte de Jade, la charmante maison accueille les gourmets dans un cadre époustouflant, la vue imprenable sur la mer émerveille tant depuis le restaurant que depuis les suites. En cuisine, où l’iode est le marqueur principal, Mathieu Guibert fait la part belle aux poissons et aux fruits de mer de la région. Le chef met également un point d’honneur à la sélection des produits de la terre qui entrent dans la composition de ses plats, il connaît bien les producteurs qui l’entourent et met en lumière toute la beauté et la complexité des produits locaux. Une véritable balade gustative au cœur du Pays de Retz.",
+    "rest": [
+      {
+        "name": "Anne de Bretagne",
+        "michelinurl": "https://restaurant.michelin.fr/2ciults/anne-de-bretagne-la-plaine-sur-mer",
+        "star": 2
+      },
+      {
+        "name": null,
+        "michelinurl": null,
+        "star": null
+      }
+    ]
+  },
+  {
+    "name": "Assiette Champenoise",
+    "url": "https://www.relaischateaux.com/fr/france/assiette-champenoise-champagne-ardenne-tinqueux",
+    "image": "//media.relaischateaux.com/public/hash/bbae8cd78bee1c6cba8d90e9d59f3bd6cc13713a",
+    "price": "185,50",
+    "city": "Tinqueux",
+    "citation": "“Au restaurant comme à l'hôtel, nous mêlons modernité et héritage familial”",
+    "desc": "Les apparences sont parfois trompeuses ! Derrière les murs de cette belle maison bourgeoise se cache un décor très contemporain fait de lignes droites, d’équipements dernier cri et de meubles design. Fondée par leurs parents il y a près de 40 ans, l’Assiette Champenoise est aujourd’hui tenue par Arnaud Lallement en cuisine, Magali, sa femme, en salle et Mélanie, sa soeur, qui ont à coeur de perpétuer la tradition familiale de l’hospitalité. Ancrée dans sa région, elle propose de découvrir les meilleurs champagnes dans le confort douillet du bar ou la cuisine maintes fois primée de ce jeune Chef qui célèbre avec inventivité la qualité des produits. Jardin, terrasse et piscine complètent harmonieusement cette belle adresse.",
+    "rest": [
+      {
+        "name": "Assiette Champenoise",
+        "michelinurl": "https://restaurant.michelin.fr/2cliodi/assiette-champenoise-tinqueux",
+        "star": 3
+      },
+      {
+        "name": null,
+        "michelinurl": null,
+        "star": null
+      }
+    ]
+  },
+  {
+    "name": "Château de la Treyne",
+    "url": "https://www.relaischateaux.com/fr/france/treyne-lot-lacave",
+    "image": "//media.relaischateaux.com/public/hash/71114e44f8523dc4a44941fca00aeb7cdbe118a3",
+    "price": "250,00",
+    "city": "Lacave",
+    "citation": "“Surplombant la Dordogne, le bonheur authentique”",
+    "desc": "La tour surplombe de si près la rivière qu'il semble que le château flotte sur ses eaux. Situé entre le Lot – surnommé Terre des merveilles – et la Dordogne – qui abrite plus de mille châteaux – le Château de la Treyne est un lieu de séjour idéal pour partir à la découverte d’une région exceptionnelle. Le chef revisite la cuisine de terroir, travaillant le foie gras bien sûr, ou l'agneau des causses du Quercy. Ce dîner des plus exquis vous sera servi dans le grand salon Louis-XIII ou sur la terrasse suspendue au-dessus de la Dordogne. Emplissez vos poumons d'un bol d'air pur et ouvrez grands les yeux pour vous imprégner de toute la majesté du cadre.",
+    "rest": [
+      {
+        "name": "Château de la Treyne",
+        "michelinurl": "https://restaurant.michelin.fr/2c38ubh/chateau-de-la-treyne-lacave",
+        "star": 1
+      },
+      {
+        "name": null,
+        "michelinurl": null,
+        "star": null
+      }
+    ]
+  },
+  {
+    "name": "Château de Mercuès",
+    "url": "https://www.relaischateaux.com/fr/france/mercues-lot-mercues",
+    "image": "//media.relaischateaux.com/public/hash/95c63f8b31973634cf4c1018e9d4612695006ff7",
+    "price": "180,00",
+    "city": "Mercuès",
+    "citation": "“Vivre au rythme de l’Histoire et du vignoble”",
+    "desc": "Séjourner dans ce château du XIIIème Siècle dominant la vallée du Lot vous fera vivre une expérience unique : une authentique plongée dans l’histoire de France, au Moyen Âge. Édifié sur un promontoire rocheux, ce fut la résidence d’été des comtes-évêques de Cahors, durant plusieurs siècles. Aujourd’hui, le chef trouve son inspiration chez les producteurs locaux et sa table a acquis une réputation internationale pour les merveilles qu’il concocte avec les truffes noires de Lalbenque, le safran et l’agneau du Quercy. La carte s’articule autour des grands vins de Malbec et du cru produit et élevé au château, car avant d'en être le propriétaire, M. Vigouroux en est le vigneron.",
+    "rest": [
+      {
+        "name": "Le Duèze",
+        "michelinurl": "https://restaurant.michelin.fr/2blc3qr/le-dueze-mercues",
+        "star": 1
+      },
+      {
+        "name": "Le Bistrot du Château",
+        "michelinurl": null,
+        "star": null
+      }
+    ]
+  },
+  {
+    "name": "Domaine de Rochevilaine",
+    "url": "https://www.relaischateaux.com/fr/france/rochevilaine-morbihan-billiers",
+    "image": "//media.relaischateaux.com/public/hash/b4c5d03a1f653b7ae0eff6b397740e2063c59e73",
+    "price": "192,00",
+    "city": "Billiers",
+    "citation": "“Passions bretonnes”",
+    "desc": "Bertrand Jaquet, le propriétaire du Domaine de Rochevilaine, a une vraie passion pour la Bretagne et manifeste un désir évident de la partager avec ses clients. Vous serez séduit par le décor typiquement breton sur l’estuaire de la Vilaine, avec ses falaises découpées et ses flots bleus. Dégustez un homard breton, le meilleur au monde, au restaurant face à la mer, où l’on se sent un peu comme sur le pont d’un paquebot. Prêtez l’oreille au bruit des vagues pendant un soin revivifiant au spa, pourquoi pas « la table phénicienne », massage breveté par l’établissement. Bertrand Jaquet est également amateur d’art, comme en témoigne la belle galerie de l’hôtel.",
+    "rest": [
+      {
+        "name": "Domaine de Rochevilaine",
+        "michelinurl": "https://restaurant.michelin.fr/2bij0t1/domaine-de-rochevilaine-billiers",
+        "star": 1
+      },
+      {
+        "name": null,
+        "michelinurl": null,
+        "star": null
+      }
+    ]
+  },
+  {
+    "name": "Hôtel Le Chabichou Restaurants & Spa",
+    "url": "https://www.relaischateaux.com/fr/france/chabichou-savoie-courchevel-1850",
+    "image": "//media.relaischateaux.com/public/hash/deb0900fbba6be2441bd488e6dd6ff8e11dd10ff",
+    "price": "470,00",
+    "city": "Saint Bon Tarentaise",
+    "citation": "“Atmosphère familiale et gastronomie au sommet”",
+    "desc": "La blancheur immaculée des façades concurrencerait presque celle du tapis de neige. Dans ce chalet savoyard au pied des pistes, une élégance discrète émane du décor traditionnel et chacun apprécie l'accueil chaleureux d'une famille qui exerce son métier avec passion. Le grand spa invite à un véritable voyage sensoriel, mais Le Chabichou offre surtout une occasion mémorable de goûter à la cuisine gastronomique raffinée à quatre mains des Chefs Michel Rochedy et Stéphane Buron. Mettant à l'honneur des produits aussi nobles que le pigeon de Bresse, elle joue admirablement le mélange des saveurs, comme dans la poitrine de cochon caramélisée à la verveine, accompagnée d’une joue de porc braisée et de polenta crémeuse à la truffe.",
+    "rest": [
+      {
+        "name": "Le Chabichou",
+        "michelinurl": "https://restaurant.michelin.fr/2btao3c/le-chabichou-courchevel-1850",
+        "star": 2
+      },
+      {
+        "name": "Le Chabotté",
+        "michelinurl": "https://restaurant.michelin.fr/2btao3c85/le-chabotte-courchevel-1850",
+        "star": 0
+      }
+    ]
+  },
+  {
+    "name": "Jiva Hill Resort",
+    "url": "https://www.relaischateaux.com/fr/france/jivahill-ain-crozet",
+    "image": "//media.relaischateaux.com/public/hash/2992d716271a7d05c460aa2e09fe6958003ad442",
+    "price": "290,00",
+    "city": "Crozet",
+    "citation": "“Aux portes de Genève un domaine entre Jura et mont Blanc”",
+    "desc": "Au coeur d'un magnifique parc de 40 hectares, les bâtiments à l'architecture contemporaine déroulent leurs lignes pures. À travers les larges baies vitrées des chambres, l'oeil embrasse un somptueux paysage de montagnes, qui rivalise avec la vue sur le mont Blanc offerte depuis la terrasse panoramique du restaurant. Entre cuisine française teintée de modernité et rituels de bien-être prodigués au Sangoma Spa, le corps et l’esprit s’apaisent et se détendent. À l’extérieur, les greens synthétiques et les 18 départs du parcours de 9 trous, alliant innovation et respect du terrain, séduiront les golfeurs. Enfin, un lac artificiel est spécialement dédié aux sports nautiques.\n\n(Note : Fermeture pour travaux du 15 octobre 2018 au 1er mai 2019)",
+    "rest": [
+      {
+        "name": "Restaurant Shamwari",
+        "michelinurl": null,
+        "star": null
+      },
+      {
+        "name": "Le Jardin",
+        "michelinurl": "https://restaurant.michelin.fr/28u6ql7/le-jardin-des-remparts-beaune",
+        "star": 1
+      }
+    ]
+  },
+  {
+    "name": "La Grande Maison de Bernard Magrez",
+    "url": "https://www.relaischateaux.com/fr/france/grande-maison-bernard-magrez-gironde-bordeaux",
+    "image": "//media.relaischateaux.com/public/hash/88e1f57ca2e97b38eb9f3561e436d58a5c586ee3",
+    "price": "293,00",
+    "city": "Bordeaux",
+    "citation": "“Notre maître mot : l'art”",
+    "desc": "La Grande Maison de Bernard Magrez est un hôtel particulier du xixe siècle, porté par deux ambassadeurs de l’excellence, au service des Arts. L’art de recevoir, d’abord, se dévoile à travers les six élégantes chambres d’inspiration Napoléon III. L’art de la haute cuisine s’incarne ici par la table d’exception de Pierre Gagnaire. L’art des grands vins, avec une carte unique au monde de 259 références dont 172 Grands Crus classés, s’accorde aux remarquables plats signatures du Chef et aux créations inédites autour des produits de la région. Le voyage se poursuit à travers l’art contemporain, à l’Institut culturel Bernard Magrez où l’on appréciera l’exposition permanente d’oeuvres de la collection du maître des lieux...",
+    "rest": [
+      {
+        "name": "La Grande Maison de Bernard Magrez",
+        "michelinurl": null,
+        "star": null
+      },
+      {
+        "name": null,
+        "michelinurl": null,
+        "star": null
+      }
+    ]
+  }
+]

@@ -54,7 +54,7 @@ async function getHotels (){
     let url = await createJsonURL();
     //console.log(url)
     let result = []
-    for(let i = 0; i < 3; i++)
+    for(let i = 0; i < url.length; i++)
     {
         console.log('Process : ' + (i+1) + '/' + url.length)
         result.push(await getDataFromUrl(url[i]))
@@ -135,31 +135,28 @@ async function countMichelinStars(hotels) {
             }
             hotels[Math.trunc(i/2)].rest[i%2].star = star
         }
-        
     }
     return hotels
 }
 
-
-
-function removeNoS(hotels){
+function cleaningH(hotels){
     let res = []
     for(let i = 0; i < hotels.length; i++){
         if(hotels[i].rest[0].star > 0 || hotels[i].rest[1].star > 0){
-            res.push(hotels[i])
+            if(hotels[i].name != ""){
+                res.push(hotels[i])
+            }
         }
     }
-    return res
-}
 
-function removeR2(hotels){
-    for(let i = 0; i < hotels.length; i++){
-        if(hotels[i].rest[1].name === null){
-            hotels[i].rest[1].michelinurl = null
-            hotels[i].rest[1].star = null
+    for(let i = 0; i < res.length; i++){
+        if(res[i].rest[1].name === null){
+            res[i].rest[1].michelinurl = null
+            res[i].rest[1].star = null
         }
     }
-    return hotels
+
+    return res
 }
 
 
@@ -170,8 +167,7 @@ async function scrapping(){
     //console.log(hotels)
     hotels = await michelin(hotels)
     hotels = await countMichelinStars(hotels)
-    hotels = removeNoS(hotels)
-    hotels = removeR2(hotels)
+    hotels = cleaningH(hotels)
     let data = JSON.stringify(hotels, null, 2)
     fs.writeFileSync('hotels.json', data)
 }
