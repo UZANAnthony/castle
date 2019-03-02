@@ -112,10 +112,24 @@ class RecipeReviewCard extends React.Component {
             <Typography paragraph>
                 <ul>
                     {this.props.item.rest.map((resto) => {
-                      if(resto.name != null){
+                      if(resto.name != null && resto.star > 1){
                         return (
                           <li>
-                              {resto.name} | {resto.star} étoile(s)
+                              {resto.name} | {resto.star} étoiles
+                          </li>
+                      )
+                      }
+                      if(resto.name != null && resto.star === null){
+                        return(
+                          <li>
+                            {resto.name} | Non reconnu par le site Michelin
+                          </li>
+                        )
+                      }
+                      if(resto.name != null && resto.star <= 1 && resto.star >= 0){
+                        return (
+                          <li>
+                              {resto.name} | {resto.star} étoile
                           </li>
                       )
                       }
