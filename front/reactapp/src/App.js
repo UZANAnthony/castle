@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Gridperso from './Components/Grid';
+import Gridperso from './Components/Grid2';
 import Card from './Components/Card';
 import Grid from '@material-ui/core/Grid';
 import './App.css';
