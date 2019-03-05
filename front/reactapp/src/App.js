@@ -35,7 +35,7 @@ class App extends Component {
           </Grid>
           <Grid item xs={6}>
           <div class="alert alert-primary" role="alert">
-              Click on Hotel info's button!
+            click on the "Info" button of a hotel for more information!
           </div>
           </Grid>
          </Grid>

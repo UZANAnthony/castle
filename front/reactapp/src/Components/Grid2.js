@@ -1,14 +1,5 @@
 import React, { Component } from 'react';
-import data from '../Data/hotels3.json'
-
-const Row = ({name, city, price}) => (
-    <tr>
-      <td>{name}</td>
-      <td>{city}</td>
-      <td>{price}</td> 
-    </tr>
-);
-
+import data from '../Data/hotels.json'
 
 
 class Grid2 extends Component {

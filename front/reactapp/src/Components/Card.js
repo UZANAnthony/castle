@@ -12,16 +12,7 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import red from '@material-ui/core/colors/red';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-
-const options = [
-  'Relais Chateau link',
-];
 
 const styles = theme => ({
   card: {
@@ -69,11 +60,7 @@ class RecipeReviewCard extends React.Component {
             </Avatar>
           }
           action={
-
-            <IconButton>
-              <MoreVertIcon />
-            </IconButton>
-            
+            <a class="btn btn-light" href={this.props.item.url} target="_blank" rel="noopener noreferrer">Website</a>
           }
           title= {this.props.item.name}
           subheader={this.props.item.city}
@@ -115,7 +102,7 @@ class RecipeReviewCard extends React.Component {
                       if(resto.name != null && resto.star > 1){
                         return (
                           <li>
-                              {resto.name} | {resto.star} étoiles
+                              {resto.name} | {resto.star} étoiles <a class="btn btn-light" href={resto.michelinurl} target="_blank" rel="noopener noreferrer">Lien Michelin</a>
                           </li>
                       )
                       }
@@ -129,7 +116,7 @@ class RecipeReviewCard extends React.Component {
                       if(resto.name != null && resto.star <= 1 && resto.star >= 0){
                         return (
                           <li>
-                              {resto.name} | {resto.star} étoile
+                              {resto.name} | {resto.star} étoile <a class="btn btn-light" href={resto.michelinurl} target="_blank" rel="noopener noreferrer">Lien Michelin</a>
                           </li>
                       )
                       }
